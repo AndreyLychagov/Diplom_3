@@ -27,8 +27,8 @@ class MainPage(BasePage):
     def is_ingredient_details_visible(self):
         return self.is_visible(MainPageLocators.MODAL_TITLE)
 
-    def get_counter_value(self, locator=MainPageLocators.INGREDIENT_BUN_COUNTER):
-        return self.get_element_text_or_default(locator)
+    def get_counter_value(self):
+        return self.get_element_text_or_default(MainPageLocators.INGREDIENT_BUN_COUNTER)
 
     def click_order_button(self):
         self.safe_click(MainPageLocators.ORDER_BUTTON)
@@ -88,3 +88,9 @@ class MainPage(BasePage):
 
     def is_login_button_visible(self):
         return self.is_visible(MainPageLocators.LOGIN_BUTTON)
+
+    def is_ingredient_modal_closed(self):
+        return not self.is_visible(MainPageLocators.MODAL)
+
+    def is_order_modal_opened(self):
+        return self.is_visible(MainPageLocators.ORDER_ID_TITLE)

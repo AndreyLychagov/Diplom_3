@@ -1,5 +1,4 @@
 import allure
-from locators.main_page_locators import MainPageLocators
 from pages.main_page import MainPage
 from pages.order_feed_page import OrderFeedPage
 
@@ -52,7 +51,7 @@ class TestMainFunctionality:
             main_page.close_ingredient_modal()
 
         with allure.step("Проверка, что модальное окно закрылось"):
-            assert not main_page.is_visible(MainPageLocators.MODAL), "Модальное окно не закрылось"
+            assert main_page.is_ingredient_modal_closed(), "Модальное окно не закрылось"
 
     @allure.title("Увеличение счетчика ингредиента")
     def test_ingredient_counter_increase(self, driver):
@@ -78,4 +77,4 @@ class TestMainFunctionality:
             main_page.click_order_button()
 
         with allure.step("Проверка номера заказа"):
-            assert main_page.is_visible(MainPageLocators.ORDER_ID_TITLE), "Модальное окно заказа не появилось"
+            assert main_page.is_order_modal_opened(), "Модальное окно заказа не появилось"

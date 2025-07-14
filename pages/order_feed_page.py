@@ -51,3 +51,6 @@ class OrderFeedPage(BasePage):
         self.wait_for_element_visible(OrderFeedLocators.ORDERS_IN_PROGRESS, timeout)
         elements = self.find_elements(OrderFeedLocators.ORDERS_IN_PROGRESS)
         return [element.text.lstrip('0') for element in elements]
+
+    def click_order_icon(self):
+        self.click(OrderFeedLocators.ORDER_ITEM_ICON)

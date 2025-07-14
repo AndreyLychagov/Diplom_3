@@ -1,7 +1,6 @@
 import allure
 from pages.main_page import MainPage
 from pages.order_feed_page import OrderFeedPage
-from locators.order_feed_locators import OrderFeedLocators
 
 
 @allure.feature("Лента заказов")
@@ -16,7 +15,7 @@ class TestOrderFeed:
             order_feed_page.wait_for_feed_loaded()
 
         with allure.step("Клик по иконке заказа"):
-            order_feed_page.click(OrderFeedLocators.ORDER_ITEM_ICON)
+            order_feed_page.click_order_icon()
 
         with allure.step("Проверка отображения состава заказа в модальном окне"):
             assert order_feed_page.is_order_details_modal_visible(), "Раздел 'Состав' в модальном окне не отобразился"
